@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GittyCandy | Renaissance Developer</title>
+  <meta name="description" content="Portfolio of GittyCandy, a versatile developer with expertise across multiple domains">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.lordicon.com/lordicon-1.1.0.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    /* Critical CSS for initial load */
+    :root {
+      --primary-color: #6c5ce7;
+      --primary-light: #a29bfe;
+      --primary-dark: #5649c0;
+      --secondary-color: #00cec9;
+      --accent-color: #fd79a8;
+      --dark-color: #0f172a;
+      --dark-2: #1e293b;
+      --light-color: #f8fafc;
+      --light-2: #f1f5f9;
+      --gray-color: #64748b;
+      --gray-light: #e2e8f0;
+      --success-color: #00b894;
+      --warning-color: #fdcb6e;
+      --info-color: #0984e3;
+      --font-main: 'Inter', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --max-width: 1280px;
+      --header-height: 80px;
+    }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--light-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+.spinner {
+   width: 44.8px;
+   height: 44.8px;
+   animation: spinner-y0fdc1 2s infinite ease;
+   transform-style: preserve-3d;
+}
+
+.spinner > div {
+   background-color: rgba(71,75,255,0.2);
+   height: 100%;
+   position: absolute;
+   width: 100%;
+   border: 2.2px solid #474bff;
+}
+
+.spinner div:nth-of-type(1) {
+   transform: translateZ(-22.4px) rotateY(180deg);
+}
+
+.spinner div:nth-of-type(2) {
+   transform: rotateY(-270deg) translateX(50%);
+   transform-origin: top right;
+}
+
+.spinner div:nth-of-type(3) {
+   transform: rotateY(270deg) translateX(-50%);
+   transform-origin: center left;
+}
+
+.spinner div:nth-of-type(4) {
+   transform: rotateX(90deg) translateY(-50%);
+   transform-origin: top center;
+}
+
+.spinner div:nth-of-type(5) {
+   transform: rotateX(-90deg) translateY(50%);
+   transform-origin: bottom center;
+}
+
+.spinner div:nth-of-type(6) {
+   transform: translateZ(22.4px);
+}
+
+@keyframes spinner-y0fdc1 {
+   0% {
+      transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+   }
+
+   50% {
+      transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+   }
+
+   100% {
+      transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+   }
+}
+  </style>
+  <link rel="stylesheet" href="/css/portfolio.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="spinner">
+
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="portfolio-container">
+    <!-- 3D Background Elements -->
+    <div class="threejs-background" id="threejs-canvas"></div>
+    <div class="gradient-overlay"></div>
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Header with Glass Morphism -->
+    <header class="portfolio-header">
+      <div class="header-content">
+        <div class="logo">
+          <lord-icon
+            src="https://cdn.lordicon.com/ajadpylz.json"
+            trigger="loop"
+                state="hover-angry"
+            delay="1000"
+            colors="primary:#6c5ce7,secondary:#00cec9"
+            style="width:45px;height:45px">
+          </lord-icon>
+          <span>GittyCandy</span>
+        </div>
+        <nav class="portfolio-nav">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </button>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>Passionate Generalist</span>
+          <lord-icon
+    src="https://cdn.lordicon.com/kezeezyg.json"
+    trigger="loop"
+    delay="1500"
+    stroke="bold"
+    state="morph-open"
+                colors="primary:#6c5ce7"
+    style="width:27px;height:27px">
+</lord-icon>
+        </div>
+        <h1>Building <span class="gradient-text">Digital Experiences</span> Across the Stack</h1>
+        <p class="hero-subtitle">I bridge the gap between design and technology, crafting solutions that are as beautiful as they are functional.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">
+            <span>View My Work</span>
+            <i class="fas fa-arrow-down"></i>
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            <span>Contact Me</span>
+            <i class="fas fa-paper-plane"></i>
+          </a>
+        </div>
+        <div class="hero-social">
+          <a href="https://github.com/gittycandy" target="_blank" class="social-link">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/gittycandy" target="_blank" class="social-link">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/gittycandy" target="_blank" class="social-link">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+<div class="hero-visual">
+  <div class="code-snippet">
+    <div class="code-header">
+      <div class="code-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="code-title">generalist.js</div>
+      <button class="copy-button" aria-label="Copy code">Copy</button>
+    </div>
+    <div class="code-content">
+      <pre><code class="language-javascript">class Generalist {
+  constructor() {
+    this.skills = [
+      'Frontend Development',
+      'Backend Engineering',
+      'UI/UX Design',
+      'Machine Learning',
+      'DevOps',
+      'Product Strategy'
+    ];
+    this.creativity = 0.9;
+    this.problemSolving = 0.95;
+  }
+
+  tackleChallenge(problem) {
+    const solution = this.analyze(problem)
+      .then(prototype)
+      .then(iterate)
+      .then(polish);
+
+    return solution;
+  }
+
+  learnNewSkill(skill) {
+    return new Promise((resolve) => {
+      this.skills.push(skill);
+      resolve(`Mastered ${skill}`);
+    });
+  }
+}
+
+console.log('Lets build something amazing!');
+</code></pre>
+    </div>
+  </div>
+</div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="section-header">
+        <h2 class="gradient-text" > About Me</h2>
+        <p>Jack of all trades, master of integration</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Hello, I'm GittyCandy</h3>
+          <p>I'm a versatile developer with expertise spanning multiple domains. My superpower is connecting dots across disciplines to create cohesive, innovative solutions.</p>
+          <p>With experience in frontend, backend, design, and everything in between, I bring a holistic perspective to every project. I thrive at the intersection of technology and creativity.</p>
+
+        </div>
+        <div class="about-image">
+          <div class="image-container">
+            <div class="image-border"></div>
+            <div class="main-image"></div>
+            <div class="image-decoration">
+              <lord-icon
+                src="https://cdn.lordicon.com/fuytegmd.json"
+                trigger="loop"
+                    stroke="bold"
+                colors="primary:#6c5ce7,secondary:#00cec9"
+                style="width:60px;height:60px">
+              </lord-icon>
+            </div>
+          </div>
+        </div>
+        <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-value" data-count="8">0</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" data-count="50">0</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" data-count="12">0</div>
+              <div class="stat-label">Technologies Mastered</div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="work-section" id="work">
+      <div class="section-header">
+        <h2 class="gradient-text">Featured Work</h2>
+        <p>A selection of my diverse projects</p>
+            <div class="filter-controls">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ai">AI</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="devops">DevOps</button>
+      <button class="filter-btn" data-filter="full-stack">Full-Stack</button>
+            </div>
+      </div>
+
+  <div class="work-grid">
+    <!-- Project 1 -->
+    <div class="project-card" data-tags="ai,full-stack,nlp">
+      <div class="project-image">
+        <img src="img/img-1.png" alt="AI Agents Hub" loading="lazy">
+      </div>
+      <div class="project-content">
+        <h3>AI Agents Hub</h3>
+        <p>A comprehensive platform featuring specialized AI agents for various tasks including research, coding, and communication.</p>
+        <div class="project-tags">
+          <span>AI</span>
+          <span>Full-Stack</span>
+          <span>NLP</span>
+        </div>
+        <a href="https://github.com/yourusername/ai-agents-hub" class="project-link" target="_blank" rel="noopener noreferrer">
+          <span>View Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="project-card" data-tags="ai,full-stack,nlp">
+      <div class="project-image">
+        <img src="img/img-1.png" alt="AI Agents Hub" loading="lazy">
+      </div>
+      <div class="project-content">
+        <h3>AI Agents Hub</h3>
+        <p>A comprehensive platform featuring specialized AI agents for various tasks including research, coding, and communication.</p>
+        <div class="project-tags">
+          <span>AI</span>
+          <span>Full-Stack</span>
+          <span>NLP</span>
+        </div>
+        <a href="https://github.com/yourusername/ai-agents-hub" class="project-link" target="_blank" rel="noopener noreferrer">
+          <span>View Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card" data-tags="design,ui/ux,react">
+      <div class="project-image">
+        <lord-icon
+          src="https://cdn.lordicon.com/etwtznjn.json"
+          trigger="hover"
+          colors="primary:#6c5ce7,secondary:#00cec9"
+          style="width:100px;height:100px">
+        </lord-icon>
+      </div>
+      <div class="project-content">
+        <h3>Design System</h3>
+        <p>A comprehensive design system with reusable components for consistent UI across multiple products.</p>
+        <div class="project-tags">
+          <span>UI/UX</span>
+          <span>Design</span>
+          <span>React</span>
+        </div>
+        <a href="https://github.com/yourusername/design-system" class="project-link" target="_blank" rel="noopener noreferrer">
+          <span>View Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card" data-tags="devops,cloud,automation">
+      <div class="project-image">
+        <lord-icon
+          src="https://cdn.lordicon.com/oclwxpmm.json"
+          trigger="hover"
+          colors="primary:#6c5ce7,secondary:#00cec9"
+          style="width:100px;height:100px">
+        </lord-icon>
+      </div>
+      <div class="project-content">
+        <h3>DevOps Pipeline</h3>
+        <p>Automated CI/CD pipeline with Kubernetes orchestration and monitoring for high-availability systems.</p>
+        <div class="project-tags">
+          <span>DevOps</span>
+          <span>Cloud</span>
+          <span>Automation</span>
+        </div>
+        <a href="https://github.com/yourusername/devops-pipeline" class="project-link" target="_blank" rel="noopener noreferrer">
+          <span>View Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Additional projects (hidden by default) -->
+    <div class="project-card hidden" data-tags="full-stack,react,node">
+      <div class="project-image">
+        <lord-icon
+          src="https://cdn.lordicon.com/ndhcfpop.json"
+          trigger="hover"
+          colors="primary:#6c5ce7,secondary:#00cec9"
+          style="width:100px;height:100px">
+        </lord-icon>
+      </div>
+      <div class="project-content">
+        <h3>E-commerce Platform</h3>
+        <p>Full-featured e-commerce solution with React frontend and Node.js backend.</p>
+        <div class="project-tags">
+          <span>Full-Stack</span>
+          <span>React</span>
+          <span>Node.js</span>
+        </div>
+        <a href="https://github.com/yourusername/ecommerce-platform" class="project-link" target="_blank" rel="noopener noreferrer">
+          <span>View Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="btn btn-ghost" id="show-more-btn">
+      <span>Show More</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+      <div class="section-header">
+        <h2 class="gradient-text"> Skills & Expertise</h2>
+        <p>My diverse toolkit for solving complex problems</p>
+      </div>
+      <div class="skills-container">
+        <div class="skills-category">
+          <h3>Frontend</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-react"></i>
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">React</div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-js"></i>
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-progress" style="width: 98%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-css3-alt"></i>
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">CSS/Sass</div>
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3>Backend</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-node-js"></i>
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">Node.js</div>
+                <div class="skill-progress" style="width: 92%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">Database Design</div>
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fas fa-server"></i>
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">API Development</div>
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3>Other</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">UI/UX Design</div>
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">Machine Learning</div>
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">Cloud Architecture</div>
+                <div class="skill-progress" style="width: 82%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="section-header">
+        <h2 class="gradient-text" >Client Testimonials</h2>
+        <p>What people say about working with me</p>
+      </div>
+			<div class="container-testi">
+				<div class="testi">
+					<div class="testi-body swiper">
+						<ui class="swiper-wrapper">
+							<li class="swiper-slide">
+                            <div class="testi-wrapper">
+                                <div class="testi-thumbnail">
+                                    <a href="https://www.linkedin.com/in/shahrul-badariah-mat-sah-681066243/" target="_blank">
+                                        <img src="img/img-1.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="testi-aside">
+                                    <p>With the face recognition and spoofing features, the system has made attendance taking easier and efficient. The intuitive design of the dashboard helps the faculty and students to manage information with ease.</p>
+                                    <div class="testi-name">
+                                        <h4>Shahrul Sah</h4>
+                                        <p class="testi-p">Instructor, School of Computer Science, University of Wollongong in Dubai</p>
+                                    </div>
+                                </div>
+                            </div>
+
+							</li>
+							<li class="swiper-slide">
+								<div class="testi-wrapper">
+									<div class="testi-thumbnail">
+                                    <a href="https://ae.linkedin.com/in/tauqeer-faiz-45524121?trk=people-guest_people_search-card/" target="_blank">
+										<img src="img/img-1.png" alt="">
+                                    </a>
+									</div>
+									<div class="testi-aside">
+										<p>It becomes challenging to maintain student attendance especially in large classes. This new attendance system solves the issue by enabling real-time monitoring of student attendance making it easier for faculty to track the student attendance.</p>
+										<div class="testi-name">
+											<h4>Mr. Tauqeer Faiz</h4>
+											<p class="testi-p">Immersive and Mobile Technology Instructor</p>
+										</div>
+									</div>
+
+
+								</div>
+							</li>
+							<li class="swiper-slide">
+								<div class="testi-wrapper">
+									<div class="testi-thumbnail">
+                                    <a href="https://ae.linkedin.com/in/sonia-dagou-69203b151?trk=people-guest_people_search-card/" target="_blank">
+                                        <img src="img/img-1.png" alt=""></a>
+									</div>
+									<div class="testi-aside">
+										<p>As a faculty member, I believe the integration of AI to track attendance, and monitor absence limits is a game-changer for both students and faculty. The system’s ability to automatically take attendance not only saves time but also ensures accuracy and transparency in recording student participation. This project fosters better communication and accountability, ensuring that students stay on top of their attendance and that faculty can focus more on teaching rather than administrative tasks.</p>
+										<div class="testi-name">
+											<h4>Sonia Dagou</h4>
+											<p class="testi-p">Instructor, School of Computer Science, University of Wollongong in Dubai<p>
+										</div>
+									</div>
+
+
+								</div>
+							</li>
+                          							<li class="swiper-slide">
+								<div class="testi-wrapper">
+									<div class="testi-thumbnail">
+                                    <a href="https://ae.linkedin.com/in/sonia-dagou-69203b151?trk=people-guest_people_search-card/" target="_blank">
+                                        <img src="img/img-1.png" alt=""></a>
+									</div>
+									<div class="testi-aside">
+										<p>As a faculty member, I believe the integration of AI to track attendance, and monitor absence limits is a game-changer for both students and faculty. The system’s ability to automatically take attendance not only saves time but also ensures accuracy and transparency in recording student participation. This project fosters better communication and accountability, ensuring that students stay on top of their attendance and that faculty can focus more on teaching rather than administrative tasks.</p>
+										<div class="testi-name">
+											<h4>Sonia Dagou</h4>
+											<p class="testi-p">Instructor, School of Computer Science, University of Wollongong in Dubai<p>
+										</div>
+									</div>
+
+
+								</div>
+							</li>
+                          							<li class="swiper-slide">
+								<div class="testi-wrapper">
+									<div class="testi-thumbnail">
+                                    <a href="https://ae.linkedin.com/in/sonia-dagou-69203b151?trk=people-guest_people_search-card/" target="_blank">
+                                        <img src="img/img-1.png" alt=""></a>
+									</div>
+									<div class="testi-aside">
+										<p>As a faculty member, I believe the integration of AI to track attendance, and monitor absence limits is a game-changer for both students and faculty. The system’s ability to automatically take attendance not only saves time but also ensures accuracy and transparency in recording student participation. This project fosters better communication and accountability, ensuring that students stay on top of their attendance and that faculty can focus more on teaching rather than administrative tasks.</p>
+										<div class="testi-name">
+											<h4>Sonia Dagou</h4>
+											<p class="testi-p">Instructor, School of Computer Science, University of Wollongong in Dubai<p>
+										</div>
+									</div>
+
+
+								</div>
+							</li>
+                          							<li class="swiper-slide">
+								<div class="testi-wrapper">
+									<div class="testi-thumbnail">
+                                    <a href="https://ae.linkedin.com/in/sonia-dagou-69203b151?trk=people-guest_people_search-card/" target="_blank">
+                                        <img src="img/img-1.png" alt=""></a>
+									</div>
+									<div class="testi-aside">
+										<p>As a faculty member, I believe the integration of AI to track attendance, and monitor absence limits is a game-changer for both students and faculty. The system’s ability to automatically take attendance not only saves time but also ensures accuracy and transparency in recording student participation. This project fosters better communication and accountability, ensuring that students stay on top of their attendance and that faculty can focus more on teaching rather than administrative tasks.</p>
+										<div class="testi-name">
+											<h4>Sonia Dagou</h4>
+											<p class="testi-p">Instructor, School of Computer Science, University of Wollongong in Dubai<p>
+										</div>
+									</div>
+
+
+								</div>
+							</li>
+                          							<li class="swiper-slide">
+								<div class="testi-wrapper">
+									<div class="testi-thumbnail">
+                                    <a href="https://ae.linkedin.com/in/sonia-dagou-69203b151?trk=people-guest_people_search-card/" target="_blank">
+                                        <img src="img/img-1.png" alt=""></a>
+									</div>
+									<div class="testi-aside">
+										<p>As a faculty member, I believe the integration of AI to track attendance, and monitor absence limits is a game-changer for both students and faculty. The system’s ability to automatically take attendance not only saves time but also ensures accuracy and transparency in recording student participation. This project fosters better communication and accountability, ensuring that students stay on top of their attendance and that faculty can focus more on teaching rather than administrative tasks.</p>
+										<div class="testi-name">
+											<h4>Sonia Dagou</h4>
+											<p class="testi-p">Instructor, School of Computer Science, University of Wollongong in Dubai<p>
+										</div>
+									</div>
+
+
+								</div>
+							</li>
+
+						</ui>
+						<div class="swiper-pagination"></div>
+
+						<!-- If we need navigation buttons -->
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+				</div>
+<br>
+<br>
+
+
+			</div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="section-header">
+        <h2 class="gradient-text" >Get In Touch</h2>
+        <p>Let's collaborate on something amazing</p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Feel free to reach out for collaborations, opportunities, or just to say hello!</p>
+          <div class="info-items">
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-text">
+                <span>Email</span>
+                <a href="mailto:hello@gittycandy.com">hello@gittycandy.com</a>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <div class="info-text">
+                <span>GitHub</span>
+                <a href="https://github.com/gittycandy" target="_blank">github.com/gittycandy</a>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div class="info-text">
+                <span>LinkedIn</span>
+                <a href="https://linkedin.com/in/gittycandy" target="_blank">linkedin.com/in/gittycandy</a>
+              </div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="fab fa-discord"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="fab fa-medium"></i>
+            </a>
+          </div>
+        </div>
+        <form class="email-client-form" id="contactForm">
+  <div class="email-header">
+
+      <div class="code-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+          <div class="code-title">New Message</div>
+  </div>
+
+  <div class="email-toolbar">
+    <button type="submit" class="toolbar-btn send-btn" id="sendButton">
+      <i class="fas fa-paper-plane"></i> Send
+    </button>
+    <div class="toolbar-options">
+      <button type="button" class="toolbar-btn"><i class="fas fa-format-color"></i></button>
+      <button type="button" class="toolbar-btn"><i class="fas fa-paperclip"></i></button>
+      <button type="button" class="toolbar-btn"><i class="fas fa-ellipsis-v"></i></button>
+    </div>
+  </div>
+
+  <div class="email-fields">
+    <div class="form-group email-row">
+      <div class="email-label">From:</div>
+      <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+    </div>
+
+    <div class="form-group email-row">
+      <div class="email-label">To:</div>
+      <input type="text" value="GittyCandy@gmail.com" readonly class="readonly-field">
+    </div>
+
+    <div class="form-group email-row">
+      <div class="email-label">Subject:</div>
+      <input type="text" id="subject" name="subject" required placeholder="Regarding your portfolio...">
+    </div>
+  </div>
+
+  <div class="email-body">
+    <textarea id="message" name="message" rows="6" required placeholder="Write your message here..."></textarea>
+    <div class="signature">
+      <div class="signature-content" contenteditable="true" id="signatureText">
+        <p>Best regards,</p>
+        <p id="senderName">[Your Name]</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="email-footer">
+    <div class="character-count"><span id="charCount">0</span>/5000</div>
+  </div>
+</form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <lord-icon
+              src="https://cdn.lordicon.com/ajadpylz.json"
+              trigger="loop"
+                  state="hover-happy"
+              colors="primary:#6c5ce7,secondary:#00cec9"
+              style="width:45px;height:45px">
+            </lord-icon>
+            <span>GittyCandy</span>
+          </div>
+          <p>Bridging the gap between technology and creativity.</p>
+        </div>
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>Explore</h4>
+            <a href="#about">About</a>
+            <a href="#work">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="link-group">
+            <h4>Resources</h4>
+            <a href="#">Blog</a>
+            <a href="#">Tutorials</a>
+            <a href="#">Design Resources</a>
+          </div>
+          <div class="link-group">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2025</span> GittyCandy. All rights reserved.</p>
+        <div class="footer-actions">
+          <a href="#" class="back-to-top">
+            <span>Back to Top</span>
+            <i class="fas fa-arrow-up"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.net.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</body>
+</html>
+
+
